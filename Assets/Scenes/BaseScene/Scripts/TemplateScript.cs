@@ -37,6 +37,11 @@ public class TemplateScript : MonoBehaviour
             else if (rayHit.collider == null && this.gameObject.tag == "BuildableTemplate")
             {
                 Instantiate(finalObject, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
     }
