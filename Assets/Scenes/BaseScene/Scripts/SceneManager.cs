@@ -49,9 +49,10 @@ public class SceneManager : MonoBehaviour
     }
     public void LoadSceneObjects()
     {
+        DeleteAll("StructureTile");
         StructureData[] data = SaveSystem.LoadStructures().data;
 
-        PrintFloor();
+
         foreach (StructureData structure in data)
         {
             Vector2 structurePosition = new Vector2(structure.position[0], structure.position[1]);
@@ -60,10 +61,12 @@ public class SceneManager : MonoBehaviour
         }
 
 
-
-
-
     }
 
+    public void DeleteAll(string tag){
+         foreach (GameObject o in GameObject.FindGameObjectsWithTag(tag)) {
+             Destroy(o);
+         }
+     }
 
 }
