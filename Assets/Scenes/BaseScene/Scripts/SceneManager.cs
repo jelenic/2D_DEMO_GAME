@@ -10,6 +10,9 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     private GameObject finalObject;
 
+    [SerializeField]
+    private GameObject structureObject;
+
     private Vector2 position;
 
     // Start is called before the first frame update
@@ -40,8 +43,27 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    void LoadSceneObjects()
+    public void SaveSceneObjects() {
+        GameObject[] structures = GameObject.FindGameObjectsWithTag("StructureTile") ;
+        SaveSystem.SaveStructures(structures);
+    }
+    public void LoadSceneObjects()
     {
+        StructureData[] data = SaveSystem.LoadStructures().data;
+
+        PrintFloor();
+        foreach (StructureData structure in data)
+        {
+            Vector2 structurePosition = new Vector2(structure.position[0], structure.position[1]);
+            Instantiate(structureObject, structurePosition, Quaternion.identity);
+            
+        }
+
+
+
+
 
     }
+
+
 }
