@@ -10,8 +10,10 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     private GameObject finalObject;
 
-    [SerializeField]
-    private GameObject structureObject;
+    // [SerializeField]
+    // private GameObject objectPairList;
+
+
 
     private Vector2 position;
 
@@ -55,8 +57,12 @@ public class SceneManager : MonoBehaviour
 
         foreach (StructureData structure in data)
         {
+            print("name " + structure.name);
             Vector2 structurePosition = new Vector2(structure.position[0], structure.position[1]);
-            Instantiate(structureObject, structurePosition, Quaternion.identity);
+            // GameObject go = GameObject.Find("SceneManager");
+            ObjectPairList other = this.GetComponent(typeof(ObjectPairList)) as ObjectPairList;
+            GameObject loadedObject = other.returnGameObject(structure.name);
+            Instantiate(loadedObject, structurePosition, Quaternion.identity);
             
         }
 

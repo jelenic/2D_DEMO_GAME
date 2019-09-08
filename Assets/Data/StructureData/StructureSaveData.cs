@@ -26,7 +26,7 @@ public class StructureData {
     public int level;
 
     public StructureData(GameObject structure) {
-        name = "default"; //structure.name;
+        name = structure.name;
         level = 1; // structure.level;
         position = new float[2];
         position[0] = structure.transform.position.x;
