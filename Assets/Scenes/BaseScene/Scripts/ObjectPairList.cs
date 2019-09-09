@@ -12,10 +12,10 @@ public class ObjectPairList : MonoBehaviour
         Debug.Log("returnnn " + name);
         switch (name)
         {
-            case "Structure(Clone)":
+            case "Structure":
                 Debug.Log("1 ");
                 return structureObjects[0];
-            case "StructureBlue(Clone)":
+            case "StructureBlue":
                 Debug.Log("2 ");
                 return structureObjects[1];
             case "Structure2":

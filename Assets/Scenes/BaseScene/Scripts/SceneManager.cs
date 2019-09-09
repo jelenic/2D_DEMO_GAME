@@ -61,8 +61,26 @@ public class SceneManager : MonoBehaviour
             Vector2 structurePosition = new Vector2(structure.position[0], structure.position[1]);
             // GameObject go = GameObject.Find("SceneManager");
             ObjectPairList other = this.GetComponent(typeof(ObjectPairList)) as ObjectPairList;
-            GameObject loadedObject = other.returnGameObject(structure.name);
-            Instantiate(loadedObject, structurePosition, Quaternion.identity);
+            string nameToReturn = structure.name;
+            GameObject loadedObject;
+            Debug.Log(nameToReturn);
+            if (nameToReturn.EndsWith("(Clone)"))
+            {
+                //Debug.Log(nameToReturn.Split('(')[0].Trim());
+                loadedObject = other.returnGameObject(nameToReturn.Split('(')[0].Trim());
+            }
+            else
+            {
+                loadedObject = other.returnGameObject(nameToReturn);
+            }
+            //Modified
+            GameObject instantiatedObject = Instantiate(loadedObject, structurePosition, Quaternion.identity);
+            StructureInfo script = instantiatedObject.GetComponent<StructureInfo>();
+            script.X = (int) structurePosition.x;
+            script.Y = (int) structurePosition.y;
+            //script.name = structure.name;
+            script.Level = structure.level;
+
             
         }
 

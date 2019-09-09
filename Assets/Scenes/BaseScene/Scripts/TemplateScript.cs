@@ -20,7 +20,7 @@ public class TemplateScript : MonoBehaviour
         //Compuet controls
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            Debug.Log("MOBILE PLATFORM");
+            //Debug.Log("MOBILE PLATFORM");
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
@@ -63,7 +63,7 @@ public class TemplateScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("PC PLATFORM");
+            //Debug.Log("PC PLATFORM");
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
             if (Input.GetMouseButtonDown(0))
