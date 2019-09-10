@@ -31,7 +31,10 @@ public class StructureInfo : MonoBehaviour
     void Start()
     {
         string objName = gameObject.name.Split('(')[0].Trim();
-        name = objName;
+        if (objName != "ConstructionSite")
+        {
+            name = objName;
+        }
         Debug.Log(name + " " + level.ToString() + " " + x.ToString() + " " + y.ToString());
         
     }

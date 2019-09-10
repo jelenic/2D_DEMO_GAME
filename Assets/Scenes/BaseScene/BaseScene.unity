@@ -851,6 +851,7 @@ MonoBehaviour:
   structureObjects:
   - {fileID: 9021242188103305491, guid: 24e4f64001170f24d85788de1aaf68c1, type: 3}
   - {fileID: 9021242188103305491, guid: 47123bc8ee1965c4fba7ea924b22d077, type: 3}
+  - {fileID: 7852432940794569707, guid: 07391ee99841b764b83193138b733e62, type: 3}
 --- !u!1 &812270143
 GameObject:
   m_ObjectHideFlags: 0

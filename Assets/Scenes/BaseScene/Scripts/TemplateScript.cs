@@ -8,6 +8,9 @@ public class TemplateScript : MonoBehaviour
     [SerializeField]
     private GameObject finalObject;
 
+    [SerializeField]
+    private GameObject constructionObject;
+
     private Vector2 mousePos;
 
     [SerializeField]
@@ -79,7 +82,14 @@ public class TemplateScript : MonoBehaviour
                     }
                     if (rayHit.collider.gameObject.tag == "BuildableTile" && this.gameObject.tag == "StructureTemplate")
                     {
-                        Instantiate(finalObject, transform.position, Quaternion.identity);
+                        //Instantiate(finalObject, transform.position, Quaternion.identity);
+                        GameObject instantiatedObject = Instantiate(constructionObject, transform.position, Quaternion.identity);
+                        StructureInfo script = instantiatedObject.GetComponent<StructureInfo>();
+                        script.X = (int)transform.position.x;
+                        script.Y = (int)transform.position.y;
+                        Debug.Log("finalObject name:" + finalObject.name);
+                        script.Name = finalObject.name;
+                        script.Level = 1;
                     }
                 }
                 else if (rayHit.collider == null && this.gameObject.tag == "BuildableTemplate")

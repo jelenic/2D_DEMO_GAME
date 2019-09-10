@@ -18,9 +18,9 @@ public class ObjectPairList : MonoBehaviour
             case "StructureBlue":
                 Debug.Log("2 ");
                 return structureObjects[1];
-            case "Structure2":
-                Debug.Log("nulll");
-                return null;
+            case "ConstructionSite":
+                Debug.Log("constructionSite");
+                return structureObjects[2];
             case "Structure3":
                 Debug.Log("nulll");
                 return null;
