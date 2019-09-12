@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4509440239842000686}
   - component: {fileID: -5704209550615268049}
   - component: {fileID: 8991381121915280351}
+  - component: {fileID: -4811435845982429000}
   m_Layer: 9
   m_Name: ConstructionSite
   m_TagString: StructureTile
@@ -133,3 +134,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094e5d0f777fbf848883c9039976cef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4811435845982429000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852432940794569707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5671d7e44bbbfb0498e65c42c412334b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 1182629735275817047, guid: 503f61d09e8bf2a408f7badcd53efcad,
+    type: 3}
+  barCanvas: {fileID: 0}
