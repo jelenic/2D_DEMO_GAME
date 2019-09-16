@@ -12,12 +12,14 @@ public class StructureInfo : MonoBehaviour
     private int constructionTimeBase, constructionScaling;
     private int mainValue, valueScaling;
     private int health, healthScaling;
+    private float duration;
 
     public Transform Transform { get => transform; set => transform = value; }
     public string Id { get => id; set => id = value; }
     public int X { get => x; set => x = value; }
     public int Y { get => y; set => y = value; }
     public int Level { get => level; set => level = value; }
+    public float Duration { get => duration; set => duration = value; }
     public string Name { get => name; set => name = value; }
     public string Type { get => type; set => type = value; }
     public int ConstructionTimeBase { get => constructionTimeBase; set => constructionTimeBase = value; }

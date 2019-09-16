@@ -74,12 +74,16 @@ public class SceneManager : MonoBehaviour
                 loadedObject = other.returnGameObject(nameToReturn);
             }
             //Modified
+            if (structure.duration > 0) {
+                loadedObject = other.returnGameObject("ConstructionSite");
+            }
             GameObject instantiatedObject = Instantiate(loadedObject, structurePosition, Quaternion.identity);
             StructureInfo script = instantiatedObject.GetComponent<StructureInfo>();
             script.X = (int) structurePosition.x;
             script.Y = (int) structurePosition.y;
-            //script.name = structure.name;
+            script.Name = structure.name;
             script.Level = structure.level;
+            script.Duration = structure.duration;
 
             
         }

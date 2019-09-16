@@ -10,7 +10,7 @@ public class FinishStructure : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnObject());
+        //StartCoroutine(spawnObject());
         
 
     }
