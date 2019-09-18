@@ -21,6 +21,8 @@ public class StructureInfo : MonoBehaviour
     private Text levelText, nameText;
     private Button upgradeBtn;
 
+    private Transform selectedObject;
+
     public Transform Transform { get => transform; set => transform = value; }
     public string Id { get => id; set => id = value; }
     public int X { get => x; set => x = value; }
@@ -70,7 +72,9 @@ public class StructureInfo : MonoBehaviour
             levelText.text = "StructureLevel:" + level;
             nameText.text = "StructureName:" + name;
             singleStructureMenu.SetActive(true);
-            
+            Debug.Log("StructureLevel:" + level + "StructureName:" + name);
+            selectedObject = gameObject.transform;
+
         }
         else
         {
@@ -86,13 +90,17 @@ public class StructureInfo : MonoBehaviour
 
             return;
         }
+        if (selectedObject != gameObject.transform)
+        {
+            return;
+        }
         ObjectPairList other = GameObject.Find("SceneManager").GetComponent(typeof(ObjectPairList)) as ObjectPairList;
         GameObject constructionObject = other.returnGameObject("ConstructionSite");
         GameObject instantiatedObject = Instantiate(constructionObject, gameObject.transform.position, Quaternion.identity);
         StructureInfo script = instantiatedObject.GetComponent<StructureInfo>();
         script.X = x;
         script.Y = y;
-        Debug.Log("UpgradingObject");
+        //Debug.Log("UpgradingObject");
         script.Name = name;
         script.Level = level + 1;
         Destroy(gameObject);
