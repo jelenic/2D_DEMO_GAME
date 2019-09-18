@@ -11,6 +11,8 @@ public class ResourcesScript : MonoBehaviour
     public Text resource2Text;
     public Text resource3Text;
 
+    private int[] resourceQ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,9 @@ public class ResourcesScript : MonoBehaviour
         //increaseResource1(5);
         //increaseResource2(4);
         //increaseResource3(3);
+        /*resourceQ = countResourceProduction();
+        increaseResource1(resourceQ[0]);
+        increaseResource2(resourceQ[1]);*/
     }
 
     public void increaseResource1(int value)
@@ -65,5 +70,31 @@ public class ResourcesScript : MonoBehaviour
         int x = 0;
         Int32.TryParse(resource3Text.text, out x);
         resource3Text.text = (x - value).ToString().Trim();
+    }
+
+    public int[] countResourceProduction()
+    {
+        int[] rQ = new int[3];
+        /*
+        rQ[0] = 0;
+        rQ[1] = 0;
+        rQ[2] = 0;*/
+        GameObject[] structures = GameObject.FindGameObjectsWithTag("StructureTile");
+
+        foreach (GameObject go in structures)
+        {
+            StructureInfo structureInfo = go.GetComponent<StructureInfo>();
+            Debug.Log(structureInfo.Name);
+            if (structureInfo.Name == "Structure" && go.name != "ConstructionSite(Clone)")
+            {
+                rQ[0] += structureInfo.Level * 5;
+            }
+            else if (structureInfo.Name == "StructureBlue" && go.name != "ConstructionSite(Clone)")
+            {
+                rQ[1] += structureInfo.Level * 5;
+            }
+        }
+
+        return rQ;
     }
 }
