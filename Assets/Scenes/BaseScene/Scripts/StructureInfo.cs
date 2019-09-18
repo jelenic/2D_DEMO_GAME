@@ -84,16 +84,12 @@ public class StructureInfo : MonoBehaviour
 
     void upgradeBuilding()
     {
-        Debug.Log("Name of the object:" + gameObject.name);
-        if (gameObject.name.Contains("ConstructionSite"))
+        if (gameObject.name.Contains("ConstructionSite") || selectedObject != gameObject.transform)
         {
 
             return;
         }
-        if (selectedObject != gameObject.transform)
-        {
-            return;
-        }
+        Debug.Log("Name of the object:" + gameObject.name);
         ObjectPairList other = GameObject.Find("SceneManager").GetComponent(typeof(ObjectPairList)) as ObjectPairList;
         GameObject constructionObject = other.returnGameObject("ConstructionSite");
         GameObject instantiatedObject = Instantiate(constructionObject, gameObject.transform.position, Quaternion.identity);
