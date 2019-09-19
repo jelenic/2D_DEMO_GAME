@@ -97,4 +97,8 @@ public class ResourcesScript : MonoBehaviour
 
         return rQ;
     }
+
+    public void setResource1 (string text) {
+        resource1Text.text = text;
+    }
 }
