@@ -21,6 +21,7 @@ public class TemplateScript : MonoBehaviour
     {
 
         //Compuet controls
+        #region AndroidControls
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
             //Debug.Log("MOBILE PLATFORM");
@@ -64,6 +65,7 @@ public class TemplateScript : MonoBehaviour
                 }
             }
         }
+        #endregion AndroidControls
         else
         {
             //Debug.Log("PC PLATFORM");
@@ -76,20 +78,24 @@ public class TemplateScript : MonoBehaviour
                 if (rayHit.collider != null)
                 {
                     Debug.Log(rayHit.collider.gameObject.tag.ToString());
-                    if (rayHit.collider.gameObject.tag == "BuildableTile")
-                    {
-                        Debug.Log("BuildableTile");
-                    }
                     if (rayHit.collider.gameObject.tag == "BuildableTile" && this.gameObject.tag == "StructureTemplate")
                     {
                         //Instantiate(finalObject, transform.position, Quaternion.identity);
-                        GameObject instantiatedObject = Instantiate(constructionObject, transform.position, Quaternion.identity);
-                        StructureInfo script = instantiatedObject.GetComponent<StructureInfo>();
-                        script.X = (int)transform.position.x;
-                        script.Y = (int)transform.position.y;
-                        Debug.Log("finalObject name:" + finalObject.name);
-                        script.Name = finalObject.name;
-                        script.Level = 1;
+                        if (GameManager.instance.SpentResources(5,5,0))
+                        {
+                            GameObject instantiatedObject = Instantiate(constructionObject, transform.position, Quaternion.identity);
+                            StructureInfo script = instantiatedObject.GetComponent<StructureInfo>();
+                            script.X = (int)transform.position.x;
+                            script.Y = (int)transform.position.y;
+                            Debug.Log("finalObject name:" + finalObject.name);
+                            script.Name = finalObject.name;
+                            script.Level = 1;
+                        }
+                        else
+                        {
+                            Debug.Log("MissingResources");
+                        }
+                        
                     }
                 }
                 else if (rayHit.collider == null && this.gameObject.tag == "BuildableTemplate")

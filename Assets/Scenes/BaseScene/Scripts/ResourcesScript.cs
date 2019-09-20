@@ -16,7 +16,7 @@ public class ResourcesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        resourceQ = new int[3];
     }
 
     // Update is called once per frame
@@ -101,7 +101,7 @@ public class ResourcesScript : MonoBehaviour
     public void setResource1 (string text) {
         resource1Text.text = text;
         int x = 0;
-        Int32.TryParse(resource1Text.text, out x);
+        Int32.TryParse(text, out x);
         resourceQ[0] = x;
     }
 
@@ -109,7 +109,7 @@ public class ResourcesScript : MonoBehaviour
     {
         resource2Text.text = text;
         int x = 0;
-        Int32.TryParse(resource1Text.text, out x);
+        Int32.TryParse(text, out x);
         resourceQ[1] = x;
     }
 
@@ -117,7 +117,7 @@ public class ResourcesScript : MonoBehaviour
     {
         resource3Text.text = text;
         int x = 0;
-        Int32.TryParse(resource1Text.text, out x);
+        Int32.TryParse(text, out x);
         resourceQ[2] = x;
     }
 }

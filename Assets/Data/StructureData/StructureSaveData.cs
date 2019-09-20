@@ -12,8 +12,7 @@ public class StructureSaveData
         for (int i = 0; i < structures.Length; i++)
         {
             StructureData structureData = new StructureData(structures[i]);
-            Debug.Log("debug structrue saving " + i + ". " + 
-            structureData.name + "-::" + structureData.position[0] + "," + structureData.position[1] + "==== duration: " + structureData.duration );
+            //Debug.Log("debug structrue saving " + i + ". " + structureData.name + "-::" + structureData.position[0] + "," + structureData.position[1] + "==== duration: " + structureData.duration );
             data[i] = structureData;
             
         }
