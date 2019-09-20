@@ -23,7 +23,7 @@ public class SceneManager : MonoBehaviour
     void Start()
     {
         PrintFloor();
-        
+
     }
 
     // Update is called once per frame
