@@ -15,6 +15,7 @@ public class SceneManager : MonoBehaviour
 
 
 
+
     private Vector2 position;
 
     
@@ -22,6 +23,7 @@ public class SceneManager : MonoBehaviour
     void Start()
     {
         PrintFloor();
+        
     }
 
     // Update is called once per frame
@@ -49,7 +51,11 @@ public class SceneManager : MonoBehaviour
     public void SaveSceneObjects() {
         GameObject[] structures = GameObject.FindGameObjectsWithTag("StructureTile") ;
         SaveSystem.SaveStructures(structures);
+
+        GameManager.instance.updateStructureState();
+        GameManager.instance.listStructureStateInConsole();
     }
+
     public void LoadSceneObjects()
     {
         DeleteAll("StructureTile");

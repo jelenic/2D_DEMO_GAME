@@ -100,5 +100,24 @@ public class ResourcesScript : MonoBehaviour
 
     public void setResource1 (string text) {
         resource1Text.text = text;
+        int x = 0;
+        Int32.TryParse(resource1Text.text, out x);
+        resourceQ[0] = x;
+    }
+
+    public void setResource2(string text)
+    {
+        resource2Text.text = text;
+        int x = 0;
+        Int32.TryParse(resource1Text.text, out x);
+        resourceQ[1] = x;
+    }
+
+    public void setResource3(string text)
+    {
+        resource3Text.text = text;
+        int x = 0;
+        Int32.TryParse(resource1Text.text, out x);
+        resourceQ[2] = x;
     }
 }
