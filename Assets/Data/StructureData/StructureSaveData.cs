@@ -28,13 +28,14 @@ public class StructureData {
     public float duration;
 
     public StructureData(GameObject structure) {
-        name = structure.name;
-        if (name.Contains("Construction")) {
+        StructureInfo structureInfo = structure.GetComponent<StructureInfo>();
+        name = structureInfo.Name;
+        if (structure.name.Contains("Construction")) {
             duration = structure.GetComponent<BuildProgressBar>().duration;
-            name = structure.GetComponent<StructureInfo>().Name;
+            name = structureInfo.Name;
 
         } else duration = 0.0f;
-        level = 1; // structure.level;
+        level = structureInfo.Level; // structure.level;
         position = new float[2];
         position[0] = structure.transform.position.x;
         position[1] = structure.transform.position.y;

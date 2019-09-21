@@ -13,22 +13,22 @@ public class ObjectPairList : MonoBehaviour
         switch (name)
         {
             case "Structure":
-                Debug.Log("1 ");
+                //Debug.Log("1 ");
                 return structureObjects[0];
             case "StructureBlue":
-                Debug.Log("2 ");
+                //Debug.Log("2 ");
                 return structureObjects[1];
             case "ConstructionSite":
-                Debug.Log("constructionSite");
+                //Debug.Log("constructionSite");
                 return structureObjects[2];
             case "Structure3":
-                Debug.Log("nulll");
+                //Debug.Log("nulll");
                 return null;
             case "Structure4":
-                Debug.Log("nulll");
+                //Debug.Log("nulll");
                 return null;
             default:
-                Debug.Log("default");
+                //Debug.Log("default");
                 return null;
         }
     }

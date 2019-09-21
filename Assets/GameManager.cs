@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
         resourceqInit();
         updateStructureState();
         resourcesScript = GameObject.Find("MainCanvas").GetComponent<ResourcesScript> ();
-        InvokeRepeating("increaseResourcesTick", 0f,2f);
+        InvokeRepeating("increaseResourcesTick", 0.2f,2f);
         //gmBtn = GameObject.Find("MainCanvas").transform.Find("gmBtn").gameObject.GetComponent<Button>();
 
         //gmBtn.onClick.AddListener(delegate { setResourceText1("lol"); });
@@ -102,12 +102,12 @@ public class GameManager : MonoBehaviour {
         int R3 = 0;
         foreach (StructureData sd in structureState)
         {
-            Debug.Log(sd.name);
-            if (sd.name == "Structure(Clone)" && sd.name != "ConstructionSite(Clone)")
+            //Debug.Log("debug name: " + sd.name + " " + sd.duration);
+            if (sd.name == "Structure" && sd.duration == 0)
             {
                 R1 += sd.level * 5;
             }
-            else if (sd.name == "StructureBlue(Clone)" && sd.name != "ConstructionSite(Clone)")
+            else if (sd.name == "StructureBlue" && sd.duration == 0)
             {
                 R2 += sd.level * 5;
             }
@@ -128,6 +128,16 @@ public class GameManager : MonoBehaviour {
         resourceQ = new int[3];
     }
 
+
+    public int[] getResources() {
+        return resourceQ;
+    }
+
+    public void setResources(int resource0, int resource1, int resource2) {
+        resourceQ[0] = resource0;
+        resourceQ[1] = resource1;
+        resourceQ[2] = resource2;
+    }
 
 
     
