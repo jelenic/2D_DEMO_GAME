@@ -60,10 +60,15 @@ public class ShipBuilding : MonoBehaviour
 
     public void finishShip()
     {
-        Debug.Log("FinishedShip:" + "numberOfComponents:" + ship.componentNumber + ";;");
-        foreach (int component in ship.componentList)
-        {
-            Debug.Log("component:" + component);
-        }
+        // Debug.Log("FinishedShip:" + "numberOfComponents:" + ship.componentNumber + ";;");
+        // foreach (int component in ship.componentList)
+        // {
+        //     Debug.Log("component:" + component);
+        // }
+
+        GameManager.instance.addShip(ship);
+
+
+        
     }
 }

@@ -50,6 +50,9 @@ public class SceneManager : MonoBehaviour {
         PlayerPrefs.SetInt ("Resource1", GameManager.instance.getResources()[1]);
         PlayerPrefs.SetInt ("Resource2", GameManager.instance.getResources()[2]);
 
+
+        GameManager.instance.getShips();
+
     }
 
     public void LoadSceneObjects () {
