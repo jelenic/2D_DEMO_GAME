@@ -24,6 +24,8 @@ public class ShipBuilding : MonoBehaviour
 
     public void newShip(int num)
     {
+        ship = null;
+        Debug.Log(num.ToString());
         ship = new ShipData(num);
         Debug.Log("ship is new");
     }
@@ -49,5 +51,19 @@ public class ShipBuilding : MonoBehaviour
         Debug.Log("textToChange:" + textForTextView);
         ComponentText.text = textForTextView;
 
+    }
+
+    public int getNumberOfComponents()
+    {
+        return ship.componentNumber;
+    }
+
+    public void finishShip()
+    {
+        Debug.Log("FinishedShip:" + "numberOfComponents:" + ship.componentNumber + ";;");
+        foreach (int component in ship.componentList)
+        {
+            Debug.Log("component:" + component);
+        }
     }
 }
