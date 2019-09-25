@@ -22,6 +22,7 @@ public class ShipData
     public int[] componentList;
 
     public int duration;
+    public string name;
 
 
     public ShipData(int num)
@@ -29,6 +30,7 @@ public class ShipData
         componentNumber = num;
         componentList = new int[num];
         duration = num * 5;
+        name = "shipType: " + num.ToString();
 
     }
 
