@@ -66,7 +66,7 @@ public class ShipBuilding : MonoBehaviour
         //     Debug.Log("component:" + component);
         // }
 
-        GameManager.instance.addShip(ship);
+        GameManager.instance.addShipBuild(ship);
 
 
         

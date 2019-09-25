@@ -28,11 +28,14 @@ public class ShipData
     public int componentNumber;
     public int[] componentList;
 
+    public int duration;
+
 
     public ShipData(int num)
     {
         componentNumber = num;
         componentList = new int[num];
+        duration = num * 5;
 
     }
 

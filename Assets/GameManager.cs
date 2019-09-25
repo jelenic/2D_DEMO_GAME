@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour {
 
     private StructureData[] structureState;
 
-    private List<ShipData> ships;
+    private List<ShipData> finishedShips;
+
+
+    private List<ShipData> shipsInProgress;
 
     //private Button gmBtn;
 
@@ -40,23 +43,57 @@ public class GameManager : MonoBehaviour {
 
         //gmBtn.onClick.AddListener(delegate { setResourceText1("lol"); });
 
-        ships = new List<ShipData>();
+        finishedShips = new List<ShipData>();
+        shipsInProgress = new List<ShipData>();
 
     }
 
-    public void addShip (ShipData ship) {
+
+    public void addShipBuild(ShipData ship) {
+        if (shipsInProgress.Count == 0) {
+            InvokeRepeating("updateShipQueue", 0.2f, 1f);
+            Debug.Log("invoking repeating");
+        } 
+        shipsInProgress.Add(ship);
+        Debug.Log("adding ship to queue " + ship.componentNumber + " : " + ship.duration);
+    }
+
+    private void updateShipQueue() {
+        shipsInProgress[0].duration -= 1;
+        if (shipsInProgress[0].duration == 0) {
+            addFinishedShip(shipsInProgress[0]);
+            Debug.Log("adding finished ship to inventory " + shipsInProgress[0].componentNumber);
+            shipsInProgress.RemoveAt(0);
+            if (shipsInProgress.Count == 0) {
+                CancelInvoke("updateShipQueue");
+                Debug.Log("canceling repeating");
+            }
+        }
+    }
+
+    public void addFinishedShip (ShipData ship) {
         Debug.Log ("adding ship: " + ship.componentNumber);
-        ships.Add (ship);
+        finishedShips.Add (ship);
     }
 
     public List<ShipData> getShips () {
-        Debug.Log("printing ships start");
-        foreach (var ship in ships) 
+        Debug.Log("printing finishedShips start " );
+        foreach (var ship in finishedShips) 
         {
             Debug.Log("shipp: " + ship.componentNumber);
         }
-        Debug.Log("printing ships end");
-        return ships;
+        Debug.Log("printing finishedShips end");
+
+        Debug.Log("printing shipsInProgress start " );
+        foreach (var ship in shipsInProgress) 
+        {
+            Debug.Log("shipp: " + ship.componentNumber + " : " + ship.duration);
+        }
+        Debug.Log("printing shipsInProgress end");
+
+
+
+        return finishedShips;
     }
 
     public bool SpentResources (int R1, int R2, int R3) {
