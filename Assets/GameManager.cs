@@ -72,11 +72,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void addFinishedShip (ShipData ship) {
-        Debug.Log ("adding ship: " + ship.componentNumber);
+        Debug.Log ("adding finished ship: " + ship.componentNumber);
         finishedShips.Add (ship);
     }
 
-    public List<ShipData> getShips () {
+    public void printShips () {
         Debug.Log("printing finishedShips start " );
         foreach (var ship in finishedShips) 
         {
@@ -90,10 +90,27 @@ public class GameManager : MonoBehaviour {
             Debug.Log("shipp: " + ship.componentNumber + " : " + ship.duration);
         }
         Debug.Log("printing shipsInProgress end");
+    }
 
+    public List<ShipData> getShipsInProgress() {
+        return shipsInProgress;
+    }
 
-
+    public List<ShipData> getFinishedShips() {
         return finishedShips;
+    }
+
+    public void setShipsInProgress(List<ShipData> ships) {
+        if (ships.Count > 0) {
+            shipsInProgress = ships;
+            InvokeRepeating("updateShipQueue", 0.2f, 1f);
+        }
+    }
+
+    public void setFinishedShips(List<ShipData> ships) {
+        if (ships.Count > 0) {
+            finishedShips = ships;
+        }
     }
 
     public bool SpentResources (int R1, int R2, int R3) {

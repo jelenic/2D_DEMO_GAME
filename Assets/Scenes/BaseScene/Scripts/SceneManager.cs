@@ -51,7 +51,13 @@ public class SceneManager : MonoBehaviour {
         PlayerPrefs.SetInt ("Resource2", GameManager.instance.getResources()[2]);
 
 
-        GameManager.instance.getShips();
+        GameManager.instance.printShips();
+
+        var shipsInProgress = GameManager.instance.getShipsInProgress();
+        var finishedShips = GameManager.instance.getFinishedShips();
+
+        SaveSystem.SaveShips(shipsInProgress, finishedShips);
+
 
     }
 
@@ -94,6 +100,11 @@ public class SceneManager : MonoBehaviour {
         }
         GameManager.instance.Invoke("updateStructureState", 0.1f);
 
+
+        //ship part
+        ShipsBuildingData allShips = SaveSystem.LoadShips();
+        GameManager.instance.setShipsInProgress(allShips.shipsInProgress);
+        GameManager.instance.setFinishedShips(allShips.finishedShips);
 
     }
 

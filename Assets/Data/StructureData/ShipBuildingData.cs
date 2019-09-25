@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//[System.Serializable]
-/*public class ShipBuildingData 
+[System.Serializable]
+public class ShipsBuildingData 
 {
-    public ShipData[] data;
-    public ShipSaveData(GameObject[] structures)
+    public List<ShipData> shipsInProgress;
+    public List<ShipData> finishedShips;
+    public ShipsBuildingData(List<ShipData> shipsInProgress, List<ShipData> finishedShips)
     {
-        data = new ShipData[structures.Length];
-
-        for (int i = 0; i < structures.Length; i++)
-        {
-            StructureData structureData = new StructureData(structures[i]);
-            //Debug.Log("debug structrue saving " + i + ". " + structureData.name + "-::" + structureData.position[0] + "," + structureData.position[1] + "==== duration: " + structureData.duration );
-            data[i] = structureData;
-
-        }
-
+        this.shipsInProgress = shipsInProgress;
+        this.finishedShips = finishedShips;
     }
-}*/
+}
 
 [System.Serializable]
 public class ShipData
