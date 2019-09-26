@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,24 +10,13 @@ public class ShipBuilding : MonoBehaviour
     private int componentToChange;
 
     public Text ComponentText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void newShip(int num)
     {
         ship = null;
-        Debug.Log(num.ToString());
         ship = new ShipData(num);
-        Debug.Log("ship is new");
+        Debug.Log("newShipInstantiated:" + num);
     }
 
     public void setComponentToChange(int num)
@@ -60,11 +49,6 @@ public class ShipBuilding : MonoBehaviour
 
     public void finishShip()
     {
-        // Debug.Log("FinishedShip:" + "numberOfComponents:" + ship.componentNumber + ";;");
-        // foreach (int component in ship.componentList)
-        // {
-        //     Debug.Log("component:" + component);
-        // }
         if (GameManager.instance.SpentResources(ship.componentNumber *50, ship.componentNumber * 50, 0))
         {
             GameManager.instance.addShipBuild(ship);
@@ -73,7 +57,6 @@ public class ShipBuilding : MonoBehaviour
         {
             Debug.Log("MissingResources");
         }
-
 
         
     }

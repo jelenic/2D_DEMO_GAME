@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +17,7 @@ public class ButtonListButton : MonoBehaviour
         buttonText.text = textT;
     }
 
-    public void setCC(int i)
+    public void setComponentToChange(int i)
     {
         CC = i;
     }
@@ -34,9 +34,4 @@ public class ButtonListButton : MonoBehaviour
         shipBuilding = GameObject.Find("SceneManager").GetComponent<ShipBuilding>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

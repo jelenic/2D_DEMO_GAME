@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BuildProgressBar : MonoBehaviour {
-    [Header ("Stuff")]
+    [Header ("ProgressBar")]
     public Image progressBar;
 
     private GameObject barCanvas;
@@ -54,18 +54,18 @@ public class BuildProgressBar : MonoBehaviour {
     }
 
     private void spawnObject () {
-        ObjectPairList other = GameObject.Find ("SceneManager").GetComponent (typeof (ObjectPairList)) as ObjectPairList;
-        StructureInfo script = this.GetComponent<StructureInfo> ();
+        ObjectPairList objPairList = GameObject.Find ("SceneManager").GetComponent (typeof (ObjectPairList)) as ObjectPairList;
+        StructureInfo constructionInfo = this.GetComponent<StructureInfo> ();
         //Debug.Log("script.Name:" + script.Name + ";;" + script.name);
-        GameObject loadedObject = other.returnGameObject (script.Name);
-        Vector2 structurePosition = new Vector2 (script.X, script.Y);
+        GameObject loadedObject = objPairList.returnGameObject (constructionInfo.Name);
+        Vector2 structurePosition = new Vector2 (constructionInfo.X, constructionInfo.Y);
         //Debug.Log("loadedObject:" + loadedObject.name);
         GameObject instantiatedObject = Instantiate (loadedObject, structurePosition, Quaternion.identity);
-        StructureInfo script2 = instantiatedObject.GetComponent<StructureInfo> ();
-        script2.X = (int) structurePosition.x;
-        script2.Y = (int) structurePosition.y;
+        StructureInfo structureInfo = instantiatedObject.GetComponent<StructureInfo> ();
+        structureInfo.X = (int) structurePosition.x;
+        structureInfo.Y = (int) structurePosition.y;
         //script.name = structure.name;
-        script2.Level = script.Level;
+        structureInfo.Level = constructionInfo.Level;
         Destroy (gameObject);
         GameManager.instance.Invoke("updateStructureState", 1f);
     }

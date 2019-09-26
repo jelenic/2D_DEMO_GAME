@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour {
     [SerializeField]
@@ -10,10 +10,7 @@ public class SceneManager : MonoBehaviour {
     [SerializeField]
     private GameObject finalObject;
 
-    // [SerializeField]
-    // private GameObject objectPairList;
 
-    private Vector2 position;
 
     // Start is called before the first frame update
     void Start () {
@@ -21,15 +18,11 @@ public class SceneManager : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update () {
-
-    }
 
     void PrintFloor () {
 
-        int i;
-        for (i = fieldSize * (-1); i <= fieldSize; i++) {
+        Vector2 position;
+        for (int i = fieldSize * (-1); i <= fieldSize; i++) {
             int j;
             for (j = fieldSize * (-1); j <= fieldSize; j++) {
                 position = new Vector2 (i, j);
@@ -108,6 +101,8 @@ public class SceneManager : MonoBehaviour {
 
     }
 
+
+    //deletesAllObjects
     public void DeleteAll (string tag) {
         foreach (GameObject o in GameObject.FindGameObjectsWithTag (tag)) {
             Destroy (o);

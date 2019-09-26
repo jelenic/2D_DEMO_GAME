@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonListControl : MonoBehaviour
@@ -12,11 +12,6 @@ public class ButtonListControl : MonoBehaviour
     private GameObject[] buttonList;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //initButtons();
-    }
 
     public void initButtons()
     {
@@ -29,7 +24,7 @@ public class ButtonListControl : MonoBehaviour
             button.SetActive(true);
 
             button.GetComponent<ButtonListButton>().setText("C:" + i);
-            button.GetComponent<ButtonListButton>().setCC(i);
+            button.GetComponent<ButtonListButton>().setComponentToChange(i);
             button.transform.SetParent(buttonTemplate.transform.parent, false);
             buttonList[i] = button;
         }

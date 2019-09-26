@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,10 +57,6 @@ public class StructureInfo : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update () {
-
-    }
 
     void OnMouseDown () {
         if (singleStructureMenu != null) {
@@ -76,11 +72,12 @@ public class StructureInfo : MonoBehaviour {
     }
 
     void upgradeBuilding () {
-        if (GameManager.instance.SpentResources ((int) Math.Round (5 * level * 0.1) + 5, (int) Math.Round (5 * level * 0.1) + 5, 0)) {
-            if (gameObject.name.Contains ("ConstructionSite") || selectedObject != gameObject.transform) {
+        if (gameObject.name.Contains("ConstructionSite") || selectedObject != gameObject.transform)
+        {
 
-                return;
-            }
+            return;
+        }
+        if (GameManager.instance.SpentResources ((int) Math.Round (5 * level * 0.1) + 5, (int) Math.Round (5 * level * 0.1) + 5, 0)) {
             Debug.Log ("Name of the object:" + gameObject.name);
             ObjectPairList other = GameObject.Find ("SceneManager").GetComponent (typeof (ObjectPairList)) as ObjectPairList;
             GameObject constructionObject = other.returnGameObject ("ConstructionSite");
