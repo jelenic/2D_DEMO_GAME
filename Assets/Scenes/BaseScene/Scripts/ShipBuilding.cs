@@ -65,8 +65,14 @@ public class ShipBuilding : MonoBehaviour
         // {
         //     Debug.Log("component:" + component);
         // }
-
-        GameManager.instance.addShipBuild(ship);
+        if (GameManager.instance.SpentResources(ship.componentNumber *50, ship.componentNumber * 50, 0))
+        {
+            GameManager.instance.addShipBuild(ship);
+        }
+        else
+        {
+            Debug.Log("MissingResources");
+        }
 
 
         
