@@ -6,20 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    #region GameManager
     public static GameManager instance = null; //Static instance of GameManager which allows it to be accessed by any other script.
-
-    private ResourcesScript resourcesScript;
-
-    private int[] resourceQ;
-
-    private StructureData[] structureState;
-
-    private List<ShipData> finishedShips;
-
-
-    private List<ShipData> shipsInProgress;
-
-    //private Button gmBtn;
 
     //Awake is always called before any Start functions
     void Awake () {
@@ -37,16 +25,20 @@ public class GameManager : MonoBehaviour {
     void Start () {
         resourceqInit ();
         updateStructureState ();
-        resourcesScript = GameObject.Find ("MainCanvas").GetComponent<ResourcesScript> ();
         InvokeRepeating ("increaseResourcesTick", 0.2f, 2f);
-        //gmBtn = GameObject.Find("MainCanvas").transform.Find("gmBtn").gameObject.GetComponent<Button>();
 
-        //gmBtn.onClick.AddListener(delegate { setResourceText1("lol"); });
-
+        resourcesScript = GameObject.Find ("MainCanvas").GetComponent<ResourcesScript> ();
         finishedShips = new List<ShipData>();
         shipsInProgress = new List<ShipData>();
 
     }
+
+    #endregion
+
+    #region ShipState
+    private List<ShipData> finishedShips;
+
+    private List<ShipData> shipsInProgress;
 
 
     public void addShipBuild(ShipData ship) {
@@ -112,6 +104,12 @@ public class GameManager : MonoBehaviour {
             finishedShips = ships;
         }
     }
+    #endregion
+
+    #region ResourcesState
+    private ResourcesScript resourcesScript;
+
+    private int[] resourceQ;
 
     public bool SpentResources (int R1, int R2, int R3) {
         if (R1 <= resourceQ[0] && R2 <= resourceQ[1] && R3 <= resourceQ[2]) {
@@ -136,16 +134,7 @@ public class GameManager : MonoBehaviour {
         resourcesScript.setResource3 (resourceQ[2].ToString ());
     }
 
-    public void updateStructureState () {
-        GameObject[] structures = GameObject.FindGameObjectsWithTag ("StructureTile");
-        structureState = new StructureData[structures.Length];
-        int i = 0;
-
-        foreach (GameObject go in structures) {
-            structureState[i] = new StructureData (go);
-            i++;
-        }
-    }
+    
 
     public void listStructureStateInConsole () {
         foreach (StructureData sd in structureState) {
@@ -189,5 +178,20 @@ public class GameManager : MonoBehaviour {
         resourceQ[1] = resource1;
         resourceQ[2] = resource2;
     }
+    #endregion
+
+    #region StructureState
+    private StructureData[] structureState;
+    public void updateStructureState () {
+        GameObject[] structures = GameObject.FindGameObjectsWithTag ("StructureTile");
+        structureState = new StructureData[structures.Length];
+        int i = 0;
+
+        foreach (GameObject go in structures) {
+            structureState[i] = new StructureData (go);
+            i++;
+        }
+    }
+    #endregion
 
 }

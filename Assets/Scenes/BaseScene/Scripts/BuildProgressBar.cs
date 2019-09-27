@@ -29,7 +29,6 @@ public class BuildProgressBar : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        currentBar.transform.position = Camera.main.WorldToScreenPoint ((Vector3.up * 0.3f) + transform.position);
         duration -= Time.deltaTime;
         setProgressBar (duration / maxDuration);
 
@@ -47,10 +46,12 @@ public class BuildProgressBar : MonoBehaviour {
     void displayBar () {
         currentBar = Instantiate (progressBar, transform.position, Quaternion.identity);
         currentBar.transform.SetParent (barCanvas.transform, false);
+        currentBar.transform.position = Camera.main.WorldToScreenPoint ((Vector3.up * 0.3f) + transform.position);
+
     }
 
     private void OnDestroy () {
-        Destroy (currentBar);
+        Destroy (currentBar.gameObject);
     }
 
     private void spawnObject () {
