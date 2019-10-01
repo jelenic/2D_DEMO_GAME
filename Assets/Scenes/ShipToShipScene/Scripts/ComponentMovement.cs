@@ -5,10 +5,12 @@ using UnityEngine;
 public class ComponentMovement : MonoBehaviour
 {
 
-    public float rotationSpeed;
-    public Transform target;
+    private float rotationSpeed;
+    private Transform target;
 
     private GameObject ammo;
+
+    //private GameObject spawnPoint;
 
     // Object will follow parent transform automatically without additional commands
 
@@ -18,12 +20,14 @@ public class ComponentMovement : MonoBehaviour
     {
         ammo = GameObject.Find("SceneManager").GetComponent<ShipPairList>().returnAmmo(this.gameObject.name);
         InvokeRepeating("Fire", 1.0f, 0.6f);
+        rotationSpeed = 3;
+        Aim();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        rotateTowardTarget();
     }
 
     private void rotateTowardTarget()
@@ -38,5 +42,26 @@ public class ComponentMovement : MonoBehaviour
     void Fire()
     {
         Instantiate(ammo, this.gameObject.transform.position, this.gameObject.transform.rotation);
+    }
+
+    void Aim()
+    {
+        Debug.Log("aiming");
+        GameObject[] hostile = GameObject.FindGameObjectsWithTag("Hostile");
+        float distance = Mathf.Infinity;
+        foreach (GameObject singleObj in hostile)
+        {
+            Debug.Log("singleObj:"+ singleObj.name);
+            float distance2 = Vector2.Distance(this.transform.position, singleObj.transform.position);
+            if (distance2 < 0)
+            {
+                distance2 *= -1;
+            }
+            if (distance2 < distance)
+            {
+                distance = distance2;
+                target = singleObj.transform;
+            }
+        }
     }
 }
