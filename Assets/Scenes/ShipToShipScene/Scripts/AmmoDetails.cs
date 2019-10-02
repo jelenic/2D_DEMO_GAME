@@ -5,7 +5,7 @@ using UnityEngine;
 public class AmmoDetails : MonoBehaviour
 {
     private float BulletForce;
-    private float maxVelocity;
+    //private float maxVelocity;
     private Rigidbody2D rb;
     private Transform bullet;
     //public GameObject explosion;
@@ -14,8 +14,8 @@ public class AmmoDetails : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BulletForce = 200;
-        maxVelocity = 1400;
+        BulletForce = 500;
+        //maxVelocity = 1400;
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 5);
         rb.AddForce(transform.up * BulletForce);

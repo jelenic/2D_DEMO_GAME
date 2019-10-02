@@ -10,4 +10,5 @@ public class SpawnObject : MonoBehaviour
     {
         Instantiate(sampleObject, Vector2.zero, Quaternion.identity);
     }
+
 }
