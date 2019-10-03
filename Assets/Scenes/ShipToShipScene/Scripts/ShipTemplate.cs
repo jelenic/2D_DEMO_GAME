@@ -12,13 +12,22 @@ public class ShipTemplate : MonoBehaviour
 
     [SerializeField]
     private LayerMask allTilesLayer;
+
+
+    private ShipData shipData;
     // Start is called before the first frame update
     void Start()
     {
-        
+        shipData = new ShipData(1);
+        shipData.setComponent(0, 1);
     }
 
     // Update is called once per frame
+    public void SetShipData(ShipData sD)
+    {
+        shipData = sD;
+    }
+
     void Update()
     {
 
@@ -38,6 +47,9 @@ public class ShipTemplate : MonoBehaviour
                 {
                     GameObject instantiatedObject = Instantiate(finalObject, transform.position, Quaternion.identity);
                     //Ship script = instantiatedObject.GetComponent<StructureInfo>();
+                    ShipDetails shipDetails = instantiatedObject.GetComponent<ShipDetails>();
+                    shipDetails.ShipData = shipData;
+                    shipDetails.SpawnComponents();
                 }
                 else if (rayHit.collider == null && this.gameObject.tag == "BuildableTemplate")
                 {

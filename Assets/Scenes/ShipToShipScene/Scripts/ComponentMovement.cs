@@ -10,6 +10,8 @@ public class ComponentMovement : MonoBehaviour
 
     private GameObject ammo;
 
+    private ShipPairList shipPairList;
+
     //private GameObject spawnPoint;
 
     // Object will follow parent transform automatically without additional commands
@@ -18,7 +20,8 @@ public class ComponentMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ammo = GameObject.Find("SceneManager").GetComponent<ShipPairList>().returnAmmo(this.gameObject.name);
+        shipPairList = GameObject.Find("SceneManager").GetComponent<ShipPairList>();
+        ammo = shipPairList.returnAmmo(this.gameObject.name);
         InvokeRepeating("Fire", 1.0f, 0.6f);
         rotationSpeed = 3;
         Aim();
@@ -27,7 +30,10 @@ public class ComponentMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotateTowardTarget();
+        if (target != null)
+        {
+            rotateTowardTarget();
+        }
     }
 
     private void rotateTowardTarget()
@@ -41,6 +47,7 @@ public class ComponentMovement : MonoBehaviour
 
     void Fire()
     {
+        Debug.Log("shipPairList:"+  shipPairList);
         Instantiate(ammo, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 

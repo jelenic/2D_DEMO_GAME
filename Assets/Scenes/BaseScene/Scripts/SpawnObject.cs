@@ -6,9 +6,24 @@ public class SpawnObject : MonoBehaviour
 {
     public GameObject sampleObject;
 
+
+
+    //shipProperties
+    private ShipData shipData;
+    private GameObject spawnedShip;
+
     public void AddObject()
     {
         Instantiate(sampleObject, Vector2.zero, Quaternion.identity);
+    }
+
+    public void SpawnShip()
+    {
+        shipData = new ShipData(1);
+        shipData.setComponent(0, 1);
+        spawnedShip = Instantiate(sampleObject, Vector2.zero, Quaternion.identity);
+        spawnedShip.GetComponent<ShipTemplate>().SetShipData(shipData);
+
     }
 
 }

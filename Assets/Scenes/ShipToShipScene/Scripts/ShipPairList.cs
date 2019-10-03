@@ -64,7 +64,7 @@ public class ShipPairList : MonoBehaviour
                 return ammo[2];*/
             default:
                 Debug.Log("default");
-                return null;
+                return ammo[0];
         }
     }
 }
