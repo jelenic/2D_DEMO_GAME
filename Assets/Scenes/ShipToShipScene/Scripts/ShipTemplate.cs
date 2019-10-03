@@ -15,18 +15,19 @@ public class ShipTemplate : MonoBehaviour
 
 
     private ShipData shipData;
+
+    public ShipData ShipData { get => shipData; set => shipData = value; }
     // Start is called before the first frame update
     void Start()
     {
-        shipData = new ShipData(1);
-        shipData.setComponent(0, 1);
+        
     }
 
     // Update is called once per frame
-    public void SetShipData(ShipData sD)
+    /*public void SetShipData(ShipData sD)
     {
         shipData = sD;
-    }
+    }*/
 
     void Update()
     {
@@ -46,7 +47,6 @@ public class ShipTemplate : MonoBehaviour
                 if (rayHit.collider == null)
                 {
                     GameObject instantiatedObject = Instantiate(finalObject, transform.position, Quaternion.identity);
-                    //Ship script = instantiatedObject.GetComponent<StructureInfo>();
                     ShipDetails shipDetails = instantiatedObject.GetComponent<ShipDetails>();
                     shipDetails.ShipData = shipData;
                     shipDetails.SpawnComponents();

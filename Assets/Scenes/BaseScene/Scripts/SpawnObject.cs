@@ -22,7 +22,8 @@ public class SpawnObject : MonoBehaviour
         shipData = new ShipData(1);
         shipData.setComponent(0, 1);
         spawnedShip = Instantiate(sampleObject, Vector2.zero, Quaternion.identity);
-        spawnedShip.GetComponent<ShipTemplate>().SetShipData(shipData);
+        spawnedShip.GetComponent<ShipTemplate>().ShipData = shipData;
+        //Debug.Log("Button shipData:" + shipData.name + shipData.componentList);
 
     }
 

@@ -47,7 +47,7 @@ public class ComponentMovement : MonoBehaviour
 
     void Fire()
     {
-        Debug.Log("shipPairList:"+  shipPairList);
+        //Debug.Log("shipPairList:"+  shipPairList);
         Instantiate(ammo, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 

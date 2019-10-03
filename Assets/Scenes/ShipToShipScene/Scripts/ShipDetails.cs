@@ -27,6 +27,9 @@ public class ShipDetails : MonoBehaviour
     public void SpawnComponents()
     {
         shipPairList = GameObject.Find("SceneManager").GetComponent<ShipPairList>();
+
+       // Debug.Log("ShipDetails shipPairList:" + shipPairList);
+       // Debug.Log("ShipDetails shipData:" + shipData);
         int componentNumber = shipData.componentNumber;
         int[] componentList = shipData.componentList;
 
@@ -49,6 +52,7 @@ public class ShipDetails : MonoBehaviour
             Debug.Log(componentObject.name);
             GameObject instantiatedComponent = Instantiate(componentObject, new Vector2((float)x,(float)y), Quaternion.identity);
             instantiatedComponent.transform.SetParent(this.transform);
+            //instantiatedComponent.transform.position
         }
     }
 }

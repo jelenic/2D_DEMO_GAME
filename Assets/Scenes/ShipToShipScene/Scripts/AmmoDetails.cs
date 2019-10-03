@@ -31,7 +31,7 @@ public class AmmoDetails : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "Obstacle")
+        if (collision.gameObject.tag != "Hostile")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }
@@ -43,7 +43,7 @@ public class AmmoDetails : MonoBehaviour
 
         Debug.Log(collision.name);
 
-        if (collision.gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Hostile")
         {
             Destroy(gameObject, 0.0f);
         }
