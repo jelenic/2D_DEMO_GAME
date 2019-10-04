@@ -12,6 +12,7 @@ public class ShipDetails : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +50,13 @@ public class ShipDetails : MonoBehaviour
         {
             //Debug.Log(shipPairList);
             GameObject componentObject = shipPairList.returnComponent("SimpleTurretComponent");
+            GameObject pivotObject = shipPairList.returnPivot();
             Debug.Log(componentObject.name);
             GameObject instantiatedComponent = Instantiate(componentObject, new Vector2((float)x,(float)y), Quaternion.identity);
-            instantiatedComponent.transform.SetParent(this.transform);
+            GameObject instantiatedPivot = Instantiate(pivotObject, new Vector2((float)x, (float)y), Quaternion.identity);
+            instantiatedPivot.transform.SetParent(this.transform);
+            instantiatedComponent.transform.SetParent(instantiatedPivot.transform);
+            y -= 3;
             //instantiatedComponent.transform.position
         }
     }

@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316c354d354981e488c2bfa33b17674e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sampleObject: {fileID: 3742133070713899591, guid: 8b7b4eb00496308468eb43fb0ea02a30,
+  sampleObject: {fileID: 5750406156341270882, guid: ebeed47079c28a14183e76cf62d31609,
     type: 3}
 --- !u!1 &1747081178
 GameObject:
@@ -464,6 +464,8 @@ MonoBehaviour:
   shipObjects: []
   ammo:
   - {fileID: 7555712057007412122, guid: d31cf6d5b28e2c34091c95a4dac0209f, type: 3}
+  emptyObj: {fileID: 8165739303432108135, guid: b4b6e9d4a9e5e244fb2afcca63bdb0b8,
+    type: 3}
 --- !u!4 &1747081180
 Transform:
   m_ObjectHideFlags: 0
