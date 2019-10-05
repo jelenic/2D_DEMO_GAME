@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 3055613826858201692}
   - component: {fileID: 3055613826858201693}
   - component: {fileID: 3055613826858201666}
+  - component: {fileID: 895557079}
   m_Layer: 5
   m_Name: SpawnShipBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3055613826858201694
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35,10 +36,10 @@ RectTransform:
   m_Father: {fileID: 3055613827438082533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3055613826858201667
 CanvasRenderer:
@@ -148,6 +149,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sampleObject: {fileID: 5750406156341270882, guid: ebeed47079c28a14183e76cf62d31609,
     type: 3}
+--- !u!114 &895557079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055613826858201695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2cb4652fcdb684696c81d7bc667905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 3055613827845773060}
 --- !u!1 &3055613826864369748
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00076293945, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0.00079345703, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3055613827438082539
@@ -367,6 +381,7 @@ GameObject:
   - component: {fileID: 3055613827705251783}
   - component: {fileID: 3055613827705251776}
   - component: {fileID: 3055613827705251781}
+  - component: {fileID: 269147302}
   m_Layer: 5
   m_Name: ShipInventory
   m_TagString: Untagged
@@ -487,6 +502,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &269147302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055613827705251778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb739e155a5969642910b068cb16244b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonTemplate: {fileID: 3055613826858201695}
 --- !u!1 &3055613827766233335
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.97222483, y: 0.035236083}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.2000122, y: -2.6887894}
+  m_AnchoredPosition: {x: -1.2000122, y: -2.6887817}
   m_SizeDelta: {x: 1.3999939, y: 4.699997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3055613827766233339
@@ -606,7 +634,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3055613827811675517}
   m_HandleRect: {fileID: 3055613827811675518}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

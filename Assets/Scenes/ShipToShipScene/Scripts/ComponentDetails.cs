@@ -17,7 +17,7 @@ public class ComponentDetails : MonoBehaviour
         
         switch (name)
         {
-            case "SimpleTurretComponent":
+            case "SimpleTurretComponent(Clone)":
                 type = "kineticDmg";
                 value1 = 5f;
                 value2 = 5f;
@@ -27,7 +27,7 @@ public class ComponentDetails : MonoBehaviour
             case "Ship3":
                 return shipObjects[2];*/
             default:
-                Debug.Log("default");
+                Debug.Log("ComponentDetails: default");
                 type = "empty";
                 return;
         }

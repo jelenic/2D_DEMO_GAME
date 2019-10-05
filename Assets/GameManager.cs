@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -104,6 +105,7 @@ public class GameManager : MonoBehaviour {
             finishedShips = ships;
         }
     }
+
     #endregion
 
     #region ResourcesState
@@ -194,4 +196,11 @@ public class GameManager : MonoBehaviour {
     }
     #endregion
 
+
+    #region Scenes
+    public void LoadSceneSTS()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ShipToShipScene");
+    }
+    #endregion Scenes
 }

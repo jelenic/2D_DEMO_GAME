@@ -53,12 +53,12 @@ public class ComponentMovement : MonoBehaviour
 
     void Aim()
     {
-        Debug.Log("aiming");
+        //Debug.Log("aiming");
         GameObject[] hostile = GameObject.FindGameObjectsWithTag("Hostile");
         float distance = Mathf.Infinity;
         foreach (GameObject singleObj in hostile)
         {
-            Debug.Log("singleObj:"+ singleObj.name);
+            //Debug.Log("singleObj:"+ singleObj.name);
             float distance2 = Vector2.Distance(this.transform.position, singleObj.transform.position);
             if (distance2 < 0)
             {

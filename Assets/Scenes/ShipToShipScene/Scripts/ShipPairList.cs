@@ -56,17 +56,16 @@ public class ShipPairList : MonoBehaviour
     public GameObject returnAmmo(string name)
     {
 
-        Debug.Log("Component (name): " + name);
+        Debug.Log("Component (name) Ammo: " + name);
         switch (name)
         {
-            case "SimpleTurretComponent":
+            case "SimpleTurretComponent(Clone)":
                 return ammo[0];
             /*case "Component2":
                 return ammo[1];
             case "Component33":
                 return ammo[2];*/
             default:
-                Debug.Log("default");
                 return ammo[0];
         }
     }

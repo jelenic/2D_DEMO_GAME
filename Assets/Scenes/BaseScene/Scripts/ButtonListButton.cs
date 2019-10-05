@@ -12,6 +12,17 @@ public class ButtonListButton : MonoBehaviour
 
     private int CC;
 
+
+
+
+    //ShipToShip
+    private ShipData shipToInstantiate;
+
+    public void setShipData(ShipData sd)
+    {
+        shipToInstantiate = sd;
+    }
+
     public void setText(string textT)
     {
         buttonText.text = textT;
@@ -26,6 +37,12 @@ public class ButtonListButton : MonoBehaviour
     {
         Debug.Log("Component to change:" + CC);
         shipBuilding.setComponentToChange(CC);
+    }
+
+    public void OnClickSTSscene()
+    {
+        Debug.Log("componentNumber:" + shipToInstantiate.componentNumber + "componentList" + shipToInstantiate.componentList);
+        this.GetComponent<SpawnObject>().SpawnShip(shipToInstantiate);
     }
 
     // Start is called before the first frame update
