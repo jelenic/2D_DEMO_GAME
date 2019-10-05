@@ -118,9 +118,12 @@ public class GameManager : MonoBehaviour {
             resourceQ[0] = resourceQ[0] - R1;
             resourceQ[1] = resourceQ[1] - R2;
             resourceQ[2] = resourceQ[2] - R3;
-            resourcesScript.setResource1 (resourceQ[0].ToString ());
-            resourcesScript.setResource2 (resourceQ[1].ToString ());
-            resourcesScript.setResource3 (resourceQ[2].ToString ());
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BaseScene")
+            {
+                resourcesScript.setResource1(resourceQ[0].ToString());
+                resourcesScript.setResource2(resourceQ[1].ToString());
+                resourcesScript.setResource3(resourceQ[2].ToString());
+            }
             return true;
         } else {
             return false;
@@ -131,9 +134,12 @@ public class GameManager : MonoBehaviour {
         resourceQ[0] = resourceQ[0] + R1;
         resourceQ[1] = resourceQ[1] + R2;
         resourceQ[2] = resourceQ[2] + R3;
-        resourcesScript.setResource1 (resourceQ[0].ToString ());
-        resourcesScript.setResource2 (resourceQ[1].ToString ());
-        resourcesScript.setResource3 (resourceQ[2].ToString ());
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BaseScene")
+        {
+            resourcesScript.setResource1(resourceQ[0].ToString());
+            resourcesScript.setResource2(resourceQ[1].ToString());
+            resourcesScript.setResource3(resourceQ[2].ToString());
+        }
     }
 
     
@@ -162,9 +168,12 @@ public class GameManager : MonoBehaviour {
         resourceQ[0] = resourceQ[0] + R1;
         resourceQ[1] = resourceQ[1] + R2;
         resourceQ[2] = resourceQ[2] + R3;
-        resourcesScript.setResource1 (resourceQ[0].ToString ());
-        resourcesScript.setResource2 (resourceQ[1].ToString ());
-        resourcesScript.setResource3 (resourceQ[2].ToString ());
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BaseScene")
+        {
+            resourcesScript.setResource1(resourceQ[0].ToString());
+            resourcesScript.setResource2(resourceQ[1].ToString());
+            resourcesScript.setResource3(resourceQ[2].ToString());
+        }
     }
 
     private void resourceqInit () {
@@ -201,6 +210,7 @@ public class GameManager : MonoBehaviour {
     public void LoadSceneSTS()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("ShipToShipScene");
+        //GameObject.Find("ShipInventory").GetComponent<ButtonListControl>().initButtonsShipInventory();
     }
     #endregion Scenes
 }

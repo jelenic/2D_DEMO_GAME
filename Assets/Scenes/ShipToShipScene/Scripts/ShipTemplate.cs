@@ -16,6 +16,8 @@ public class ShipTemplate : MonoBehaviour
 
     private ShipData shipData;
 
+    private int maxSpawnableObjects;
+
     public ShipData ShipData { get => shipData; set => shipData = value; }
     // Start is called before the first frame update
     void Start()

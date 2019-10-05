@@ -50,15 +50,21 @@ public class ShipDetails : MonoBehaviour
         {
             //Debug.Log(shipPairList);
             //always sets simpleTurretComponent WRONG
-            GameObject componentObject = shipPairList.returnComponent("SimpleTurretComponent");
+            GameObject componentObject = shipPairList.returnComponentID(component);
             GameObject pivotObject = shipPairList.returnPivot();
-            Debug.Log("foreach component in shipDetails:" + componentObject.name);
-            GameObject instantiatedComponent = Instantiate(componentObject, new Vector2((float)x,(float)y), Quaternion.identity);
             GameObject instantiatedPivot = Instantiate(pivotObject, new Vector2((float)x, (float)y), Quaternion.identity);
             instantiatedPivot.transform.SetParent(this.transform);
-            instantiatedComponent.transform.SetParent(instantiatedPivot.transform);
+            if (componentObject != null)
+            {
+                Debug.Log("foreach component in shipDetails:" + componentObject.name);
+                GameObject instantiatedComponent = Instantiate(componentObject, new Vector2((float)x, (float)y), Quaternion.identity);
+                instantiatedComponent.transform.SetParent(instantiatedPivot.transform);
+            }
+            else
+            {
+                Debug.Log("foreach component in shipDetails:" + "null");
+            }
             y -= 3;
-            //instantiatedComponent.transform.position
         }
     }
 }

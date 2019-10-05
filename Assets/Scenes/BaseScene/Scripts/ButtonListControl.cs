@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonListControl : MonoBehaviour
 {
@@ -19,13 +20,17 @@ public class ButtonListControl : MonoBehaviour
 
     private void Start()
     {
-        initButtonsShipInventory();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ShipToShipScene")
+        {
+            initButtonsShipInventory();
+        }
     }
 
 
 
     public void initButtons()
     {
+        //deleteButtonsShip();
         shipBuilding = GameObject.Find("SceneManager").GetComponent<ShipBuilding>();
         numberOfButtons = shipBuilding.getNumberOfComponents();
         buttonList = new GameObject[numberOfButtons];
@@ -45,7 +50,10 @@ public class ButtonListControl : MonoBehaviour
 
     public void initButtonsShipInventory()
     {
+        //deleteButtonsShip();
+        Debug.Log("called initButtonsShipInventory");
         finishedShips = GameManager.instance.getFinishedShips();
+
 
 
         var listOfNumbers = finishedShips.GroupBy(x => x.name)
@@ -73,6 +81,14 @@ public class ButtonListControl : MonoBehaviour
     public void deleteButtons()
     {
         foreach (GameObject button in buttonList)
+        {
+            Destroy(button);
+        }
+    }
+
+    public void deleteButtonsShip()
+    {
+        foreach (GameObject button in buttonList2)
         {
             Destroy(button);
         }

@@ -39,9 +39,9 @@ public class ShipData
     public ShipData (string namee)
     {
         Debug.Log(namee);
-        Debug.Log(namee.Split(';')[1]);
-        Debug.Log(namee.Split(';')[2]);
-        Debug.Log(namee.Split(';')[2].Split(','));
+        //Debug.Log(namee.Split(';')[1]);
+        //Debug.Log(namee.Split(';')[2]);
+        //Debug.Log(namee.Split(';')[2].Split(','));
         componentNumber = Int32.Parse(namee.Split(';')[1]);
         componentList = new int[componentNumber];
         this.name = namee;

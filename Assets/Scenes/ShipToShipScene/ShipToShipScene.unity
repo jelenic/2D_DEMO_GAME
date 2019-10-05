@@ -569,37 +569,5 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -2.6887894
       objectReference: {fileID: 0}
-    - target: {fileID: 3055613826858201693, guid: 9e270eee42485a34aaf99375f683d44d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055613826858201693, guid: 9e270eee42485a34aaf99375f683d44d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3055613827836830100}
-    - target: {fileID: 3055613826858201693, guid: 9e270eee42485a34aaf99375f683d44d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickSTSscene
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055613826858201693, guid: 9e270eee42485a34aaf99375f683d44d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e270eee42485a34aaf99375f683d44d, type: 3}
---- !u!114 &3055613827836830100 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 895557079, guid: 9e270eee42485a34aaf99375f683d44d,
-    type: 3}
-  m_PrefabInstance: {fileID: 3055613827836830099}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c2cb4652fcdb684696c81d7bc667905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

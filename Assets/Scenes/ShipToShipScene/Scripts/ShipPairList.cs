@@ -56,6 +56,24 @@ public class ShipPairList : MonoBehaviour
         }
     }
 
+    public GameObject returnComponentID(int id)
+    {
+
+        Debug.Log("Component (id): " + id);
+        switch (id)
+        {
+            case 1:
+                return componentObjects[0];
+            /*case "Component2":
+                return componentObjects[1];
+            case "Component33":
+                return componentObjects[2];*/
+            default:
+                Debug.Log("default");
+                return null;
+        }
+    }
+
     public GameObject returnAmmo(string name)
     {
 

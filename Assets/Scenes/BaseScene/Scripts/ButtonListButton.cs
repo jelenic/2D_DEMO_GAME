@@ -28,6 +28,8 @@ public class ButtonListButton : MonoBehaviour
         buttonText.text = textT;
     }
 
+
+
     public void setComponentToChange(int i)
     {
         CC = i;
