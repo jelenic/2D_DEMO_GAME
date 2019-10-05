@@ -15,6 +15,7 @@ public class ButtonListControl : MonoBehaviour
 
     //shipInventory
     private List<ShipData> finishedShips;
+    private GameObject[] buttonList2;
 
     private void Start()
     {
@@ -30,6 +31,8 @@ public class ButtonListControl : MonoBehaviour
         buttonList = new GameObject[numberOfButtons];
         for (int i = 0; i < numberOfButtons; i++)
         {
+
+            Debug.Log("initButtons: i:" + i);
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
 
@@ -45,21 +48,21 @@ public class ButtonListControl : MonoBehaviour
         finishedShips = GameManager.instance.getFinishedShips();
 
 
-        var listOfNumbers = finishedShips.GroupBy(x => x.componentNumber)
+        var listOfNumbers = finishedShips.GroupBy(x => x.name)
             .Select(g => new { Value = g.Key, Count = g.Count() })
             .OrderByDescending(x => x.Count);
         int i = 0;
         //Debug.Log("listOfNumbers count:" + listOfNumbers.Count());
-        buttonList = new GameObject[listOfNumbers.Count()];
+        buttonList2 = new GameObject[listOfNumbers.Count()];
         foreach (var x in listOfNumbers)
         {
             Debug.Log("Value: " + x.Value + " Count: " + x.Count);
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
             button.GetComponent<ButtonListButton>().setText("Ship:" + x.Value + "(" + x.Count + ")");
-            button.GetComponent<ButtonListButton>().setShipData(new ShipData(x.Value));
+            button.GetComponent<ButtonListButton>().setShipData(new ShipData(2));
             button.transform.SetParent(buttonTemplate.transform.parent, false);
-            buttonList[i] = button;
+            buttonList2[i] = button;
             i++;
         }
 

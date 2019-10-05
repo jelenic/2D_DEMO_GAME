@@ -2960,6 +2960,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 797527909}
+    - target: {fileID: 700999260132780697, guid: 1f1b82ea241c64946bc6f865393a84c1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700999260132780697, guid: 1f1b82ea241c64946bc6f865393a84c1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700999260132780697, guid: 1f1b82ea241c64946bc6f865393a84c1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700999260132780697, guid: 1f1b82ea241c64946bc6f865393a84c1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8249318673917547222}
+    - target: {fileID: 700999260132780697, guid: 1f1b82ea241c64946bc6f865393a84c1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: deleteButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 700999260132780697, guid: 1f1b82ea241c64946bc6f865393a84c1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f1b82ea241c64946bc6f865393a84c1, type: 3}
 --- !u!1001 &1168736057166774686

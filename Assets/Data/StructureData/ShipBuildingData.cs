@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -30,17 +32,28 @@ public class ShipData
         componentNumber = num;
         componentList = new int[num];
         duration = num * 5;
-        name = "shipType: " + num.ToString();
+        name = "shipType: " + num.ToString() + String.Concat(Enumerable.Repeat("0", num));
 
     }
 
     public void setComponent(int num, int id)
     {
         componentList[num] = id;
+        determineName();
     }
 
     public int getComponent(int num)
     {
         return componentList[num];
+    }
+
+    public void determineName()
+    {
+        string listPart = "";
+        foreach (int i in componentList)
+        {
+            listPart += i;
+        }
+        name = "shipType: " + componentNumber + listPart;
     }
 }
