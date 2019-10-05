@@ -15,6 +15,9 @@ public class ShipPairList : MonoBehaviour
     private GameObject[] ammo;
 
     [SerializeField]
+    private GameObject[] shipTemplates;
+
+    [SerializeField]
     private GameObject emptyObj;
 
     public GameObject returnShip(string name)
@@ -73,5 +76,21 @@ public class ShipPairList : MonoBehaviour
     public GameObject returnPivot()
     {
         return emptyObj;
+    }
+
+    public GameObject returnShipTemplate(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                return shipTemplates[0];
+            case 2:
+                return shipTemplates[1];
+            /*case "Ship3":
+                return shipObjects[2];*/
+            default:
+                Debug.Log("default");
+                return null;
+        }
     }
 }

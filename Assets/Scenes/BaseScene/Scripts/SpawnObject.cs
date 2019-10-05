@@ -20,6 +20,7 @@ public class SpawnObject : MonoBehaviour
     public void SpawnShip(ShipData sd)
     {
         shipData = sd;
+        sampleObject = GameObject.Find("SceneManager").GetComponent<ShipPairList>().returnShipTemplate(sd.componentNumber);
         //shipData.setComponent(0, 1);
         //shipData.setComponent(1, 1);
         spawnedShip = Instantiate(sampleObject, Vector2.zero, Quaternion.identity);

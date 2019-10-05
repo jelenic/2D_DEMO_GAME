@@ -49,7 +49,7 @@ public class ButtonListControl : MonoBehaviour
 
 
         var listOfNumbers = finishedShips.GroupBy(x => x.name)
-            .Select(g => new { Value = g.Key, Count = g.Count() })
+            .Select(x => new { Value = x.Key, Count = x.Count() })
             .OrderByDescending(x => x.Count);
         int i = 0;
         //Debug.Log("listOfNumbers count:" + listOfNumbers.Count());
@@ -60,7 +60,8 @@ public class ButtonListControl : MonoBehaviour
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
             button.GetComponent<ButtonListButton>().setText("Ship:" + x.Value + "(" + x.Count + ")");
-            button.GetComponent<ButtonListButton>().setShipData(new ShipData(2));
+            ShipData sd = new ShipData(x.Value);
+            button.GetComponent<ButtonListButton>().setShipData(sd);
             button.transform.SetParent(buttonTemplate.transform.parent, false);
             buttonList2[i] = button;
             i++;

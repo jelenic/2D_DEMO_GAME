@@ -32,7 +32,30 @@ public class ShipData
         componentNumber = num;
         componentList = new int[num];
         duration = num * 5;
-        name = "shipType: " + num.ToString() + String.Concat(Enumerable.Repeat("0", num));
+        name = "shipType;" + num.ToString() +";"+ String.Concat(Enumerable.Repeat("0,", num));
+
+    }
+
+    public ShipData (string namee)
+    {
+        Debug.Log(namee);
+        Debug.Log(namee.Split(';')[1]);
+        Debug.Log(namee.Split(';')[2]);
+        Debug.Log(namee.Split(';')[2].Split(','));
+        componentNumber = Int32.Parse(namee.Split(';')[1]);
+        componentList = new int[componentNumber];
+        this.name = namee;
+        int i = 0;
+        Debug.Log(componentNumber);
+        foreach(string number in namee.Split(';')[2].Split(','))
+        {
+            componentList[i] = Int32.Parse(number);
+            i++;
+            if (i >= componentNumber)
+            {
+                break;
+            }
+        }
 
     }
 
@@ -52,8 +75,8 @@ public class ShipData
         string listPart = "";
         foreach (int i in componentList)
         {
-            listPart += i;
+            listPart += i + ",";
         }
-        name = "shipType: " + componentNumber + listPart;
+        name = "shipType;" + componentNumber + ";"+ listPart;
     }
 }
