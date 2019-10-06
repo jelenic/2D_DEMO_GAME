@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipTemplate : MonoBehaviour
 {
@@ -16,13 +17,24 @@ public class ShipTemplate : MonoBehaviour
 
     private ShipData shipData;
 
-    private int maxSpawnableObjects;
+    //btn text
+    private ButtonListButton btb;
 
+
+    public ButtonListButton Btb { get => btb; set => btb = value; }
     public ShipData ShipData { get => shipData; set => shipData = value; }
+
+    private Text buttonText;
+    private string textForBtn;
+    private int maxSpawnableObjects;
     // Start is called before the first frame update
     void Start()
     {
-        
+        buttonText = Btb.getText();
+        textForBtn = buttonText.text.Split('(')[0];
+        maxSpawnableObjects = Btb.getNumberOfStoredUnits();
+        Debug.Log("maxSpawnableObjects:" + maxSpawnableObjects);
+
     }
 
     // Update is called once per frame
@@ -46,17 +58,14 @@ public class ShipTemplate : MonoBehaviour
             {
                 RaycastHit2D rayHit = Physics2D.Raycast(transform.position, Vector2.zero, Mathf.Infinity, allTilesLayer);
 
-                if (rayHit.collider == null)
+                if (rayHit.collider == null && maxSpawnableObjects>0)
                 {
                     GameObject instantiatedObject = Instantiate(finalObject, transform.position, Quaternion.identity);
                     ShipDetails shipDetails = instantiatedObject.GetComponent<ShipDetails>();
                     shipDetails.ShipData = shipData;
                     shipDetails.SpawnComponents();
-                }
-                else if (rayHit.collider == null && this.gameObject.tag == "BuildableTemplate")
-                {
-                    Instantiate(finalObject, transform.position, Quaternion.identity);
-                    Destroy(gameObject);
+                    maxSpawnableObjects--;
+                    Btb.setText(textForBtn + "(" + maxSpawnableObjects + ")");
                 }
                 else
                 {

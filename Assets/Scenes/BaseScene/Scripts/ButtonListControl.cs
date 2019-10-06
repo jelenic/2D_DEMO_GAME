@@ -31,13 +31,14 @@ public class ButtonListControl : MonoBehaviour
     public void initButtons()
     {
         //deleteButtonsShip();
+        Debug.Log("called initButtons");
         shipBuilding = GameObject.Find("SceneManager").GetComponent<ShipBuilding>();
         numberOfButtons = shipBuilding.getNumberOfComponents();
         buttonList = new GameObject[numberOfButtons];
         for (int i = 0; i < numberOfButtons; i++)
         {
 
-            Debug.Log("initButtons: i:" + i);
+            //Debug.Log("initButtons: i:" + i);
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
 
@@ -64,12 +65,13 @@ public class ButtonListControl : MonoBehaviour
         buttonList2 = new GameObject[listOfNumbers.Count()];
         foreach (var x in listOfNumbers)
         {
-            Debug.Log("Value: " + x.Value + " Count: " + x.Count);
+            //Debug.Log("Value: " + x.Value + " Count: " + x.Count);
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
             button.GetComponent<ButtonListButton>().setText("Ship:" + x.Value + "(" + x.Count + ")");
             ShipData sd = new ShipData(x.Value);
             button.GetComponent<ButtonListButton>().setShipData(sd);
+            button.GetComponent<ButtonListButton>().setNumberOfStoredUnits(x.Count);
             button.transform.SetParent(buttonTemplate.transform.parent, false);
             buttonList2[i] = button;
             i++;

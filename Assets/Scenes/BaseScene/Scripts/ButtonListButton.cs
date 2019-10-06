@@ -12,6 +12,7 @@ public class ButtonListButton : MonoBehaviour
 
     private int CC;
 
+    private int numberOfStoredUnits;
 
 
 
@@ -26,6 +27,16 @@ public class ButtonListButton : MonoBehaviour
     public void setText(string textT)
     {
         buttonText.text = textT;
+    }
+
+    public void setNumberOfStoredUnits(int num)
+    {
+        numberOfStoredUnits = num;
+    }
+
+    public int getNumberOfStoredUnits()
+    {
+        return numberOfStoredUnits;
     }
 
 
@@ -52,5 +63,11 @@ public class ButtonListButton : MonoBehaviour
     {
         shipBuilding = GameObject.Find("SceneManager").GetComponent<ShipBuilding>();
     }
+
+    public Text getText()
+    {
+        return buttonText;
+    }
+
 
 }

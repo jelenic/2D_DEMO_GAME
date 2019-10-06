@@ -12,19 +12,6 @@ public class ShipDetails : MonoBehaviour
 
 
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //shipPairList = GameObject.Find("SceneManager").GetComponent<ShipPairList>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnComponents()
     {
         shipPairList = GameObject.Find("SceneManager").GetComponent<ShipPairList>();
