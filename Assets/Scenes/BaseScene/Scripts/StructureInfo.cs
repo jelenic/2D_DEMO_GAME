@@ -59,12 +59,19 @@ public class StructureInfo : MonoBehaviour {
 
 
     void OnMouseDown () {
-        if (singleStructureMenu != null) {
-            levelText.text = "StructureLevel:" + level;
-            nameText.text = "StructureName:" + name;
-            singleStructureMenu.SetActive (true);
-            Debug.Log ("StructureLevel:" + level + "StructureName:" + name);
-            selectedObject = gameObject.transform;
+        if (singleStructureMenu != null ) {
+            if (!GameObject.FindGameObjectWithTag("SingleUIElement") && !GameObject.FindGameObjectWithTag("StructureTemplate"))
+            {
+                levelText.text = "StructureLevel:" + level;
+                nameText.text = "StructureName:" + name;
+                singleStructureMenu.SetActive(true);
+                Debug.Log("StructureLevel:" + level + "StructureName:" + name);
+                selectedObject = gameObject.transform;
+            }
+            else
+            {
+                Debug.Log("menuIsActive or structureTemplateIsActive");
+            }
 
         } else {
             Debug.Log ("singleStructureMenu je null");

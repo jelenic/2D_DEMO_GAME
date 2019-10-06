@@ -10,12 +10,27 @@ public class SceneManager : MonoBehaviour {
     [SerializeField]
     private GameObject finalObject;
 
+    [HideInInspector]
+    public bool menuIsActive;
+
 
 
     // Start is called before the first frame update
     void Start () {
         PrintFloor ();
+    }
 
+    private void Update()
+    {
+        /*if (GameObject.FindGameObjectWithTag("SingleUIElement"))
+        {
+            menuIsActive = true;
+        }
+        else
+        {
+            menuIsActive = false;
+        }*/
+        //Debug.Log("menuIsActive" + menuIsActive);
     }
 
 

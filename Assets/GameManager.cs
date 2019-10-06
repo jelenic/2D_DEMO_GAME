@@ -155,7 +155,6 @@ public class GameManager : MonoBehaviour {
         int R2 = 5;
         int R3 = 0;
         foreach (StructureData sd in structureState) {
-            //Debug.Log("debug name: " + sd.name + " " + sd.duration);
             if (sd.name == "Structure" && sd.duration == 0) {
                 R1 += sd.level * 5;
             } else if (sd.name == "StructureBlue" && sd.duration == 0) {
@@ -163,7 +162,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        Debug.Log ("increasingResources:" + R1 + " " + R2 + " " + R3);
+        //Debug.Log ("increasingResources:" + R1 + " " + R2 + " " + R3);
 
         resourceQ[0] = resourceQ[0] + R1;
         resourceQ[1] = resourceQ[1] + R2;
